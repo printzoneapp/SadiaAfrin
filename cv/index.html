@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadia Afrin — Political CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #16202b;
+    --muted: #5d6875;
+    --line: #e3e7ec;
+    --accent: #0f6b4f;
+    --accent-soft: #e8f3ef;
+    --red: #c8102e;
+    --side: #f5f7f8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #d9dde2;
+    font-size: 9.6pt;
+    line-height: 1.5;
+  }
+  .page {
+    width: 210mm; height: 297mm;
+    margin: 10mm auto;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; page-break-after: always; break-after: page; }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+  }
+  .flag-bar { height: 4mm; display: flex; flex: none; }
+  .flag-bar span:first-child { flex: 1; background: var(--accent); }
+  .flag-bar span:last-child { width: 22mm; background: var(--red); }
+
+  /* Header */
+  header {
+    display: flex; align-items: center; gap: 9mm;
+    padding: 9mm 16mm 7mm; flex: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .portrait {
+    width: 34mm; height: 40mm; flex: none;
+    border-radius: 3mm;
+    object-fit: cover; object-position: center 20%;
+  }
+  h1 {
+    font-size: 30pt; line-height: 1.05; font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  h1 span { color: var(--accent); }
+  .role {
+    margin-top: 2.5mm; font-size: 10.5pt; font-weight: 600; color: var(--ink);
+  }
+  .role-sub { color: var(--muted); font-size: 9.5pt; }
+  .tags { margin-top: 4mm; display: flex; flex-wrap: wrap; gap: 1.8mm; }
+  .tag {
+    font-size: 7.6pt; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    background: var(--accent-soft); color: var(--accent);
+    padding: 0.8mm 2.6mm; border-radius: 10mm;
+  }
+
+  /* Body grid */
+  .body { flex: 1; min-height: 0; display: grid; grid-template-columns: 62mm 1fr; }
+  aside { background: var(--side); padding: 7mm 8mm 6mm 16mm; }
+  aside section + section { margin-top: 5mm; }
+  main { padding: 8mm 16mm 8mm 10mm; }
+
+  h2 {
+    font-size: 8pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3.5mm;
+    display: flex; align-items: center; gap: 3mm;
+  }
+  main h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  section + section { margin-top: 7.5mm; }
+
+  /* Sidebar */
+  .kv { display: grid; gap: 1.6mm; }
+  .kv div { line-height: 1.35; }
+  .kv b {
+    display: block; font-size: 7pt; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.4mm;
+  }
+  .kv a { color: inherit; text-decoration: none; }
+  .skills { list-style: none; display: grid; grid-template-columns: 1fr; gap: 1.4mm; }
+  .skills li { display: flex; align-items: center; gap: 2.4mm; font-weight: 500; }
+  .skills li::before {
+    content: ""; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: var(--accent); flex: none;
+  }
+  .lang { display: grid; gap: 3mm; }
+  .lang-name { font-weight: 600; display: flex; justify-content: space-between; }
+  .lang-name small { font-weight: 400; color: var(--muted); font-size: 7.6pt; }
+  .meter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2mm; margin-top: 1.2mm; }
+  .meter span { font-size: 6.6pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .meter span::before {
+    content: ""; display: block; height: 1.3mm; border-radius: 1mm; margin-bottom: 0.8mm;
+    background: var(--accent);
+  }
+  .meter span.mid::before { background: linear-gradient(90deg, var(--accent) 60%, #c9d6d1 60%); }
+
+  /* Main */
+  .about { color: #2c3743; font-size: 9.8pt; line-height: 1.6; }
+  .timeline { position: relative; padding-left: 6mm; }
+  .timeline::before {
+    content: ""; position: absolute; left: 1.1mm; top: 1.5mm; bottom: 1.5mm;
+    width: 1px; background: var(--line);
+  }
+  .item { position: relative; }
+  .item + .item { margin-top: 4.5mm; }
+  .item::before {
+    content: ""; position: absolute; left: -6mm; top: 1.4mm;
+    width: 2.4mm; height: 2.4mm; border-radius: 50%;
+    background: #fff; border: 1.6px solid var(--accent);
+  }
+  .item.current::before { background: var(--accent); }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .item h3 { font-size: 10.2pt; font-weight: 700; line-height: 1.3; }
+  .when { font-size: 8pt; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .pos { margin-top: 1.2mm; }
+  .pos + .pos { margin-top: 1.6mm; }
+  .pos strong { font-weight: 600; }
+  .pos span { color: var(--muted); }
+
+  .edu { display: grid; gap: 3.2mm; }
+  .edu-row { display: grid; grid-template-columns: 22mm 1fr; gap: 4mm; align-items: baseline; }
+  .edu-row .deg { font-weight: 700; color: var(--accent); font-size: 9pt; }
+  .edu-row .what { font-weight: 600; }
+  .edu-row .where { color: var(--muted); }
+
+  /* Page 2 */
+  .p2-head { flex: none; padding: 10mm 16mm 6mm; display: flex; justify-content: space-between; align-items: end; }
+  .p2-head h1 { font-size: 20pt; }
+  .p2-head p { color: var(--muted); max-width: 95mm; margin-top: 2mm; }
+  .p2-head .name { font-size: 8pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .gallery {
+    flex: 1; min-height: 0; padding: 0 16mm 8mm;
+    display: grid; gap: 3mm;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+  figure { position: relative; min-height: 0; border-radius: 2.5mm; overflow: hidden; background: var(--side); }
+  figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  figure.wide { grid-column: span 2; }
+  figure.tall { grid-row: span 2; }
+  figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 6mm 3.5mm 2.5mm;
+    color: #fff; font-size: 7.8pt; font-weight: 600;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  }
+  footer {
+    flex: none; padding: 4mm 16mm; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; font-size: 7.6pt; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="flag-bar"><span></span><span></span></div>
+
+  <header>
+    <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Sadia Afrin">
+    <div>
+      <h1>Sadia <span>Afrin</span></h1>
+      <div class="role">Joint Member Secretary, National Citizen Party (NCP)</div>
+      <div class="role-sub">Coordinator Committee · Chattogram Metropolitan Area</div>
+      <div class="tags">
+        <span class="tag">Civic Education</span>
+        <span class="tag">Youth Engagement</span>
+        <span class="tag">Women's Leadership</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <aside>
+      <section>
+        <h2>Contact</h2>
+        <div class="kv">
+          <div><b>Mobile</b>+880 1884-282899</div>
+          <div><b>Email</b><a href="mailto:sadiasinat@gmail.com">sadiasinat@gmail.com</a></div>
+          <div><b>Present Address</b>House 47, Road 01, Joynagar R/A, Chowkbazar, Chattogram</div>
+          <div><b>Permanent Address</b>Est-Madersha, Badiulalam Hat, Hathazari, Chattogram</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Personal</h2>
+        <div class="kv">
+          <div><b>Date of Birth</b>18 November 1989</div>
+          <div><b>Father</b>Mohammed Hossen</div>
+          <div><b>Mother</b>Khorsida Begum</div>
+          <div><b>Religion</b>Islam</div>
+          <div><b>Marital Status</b>Married</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul class="skills">
+          <li>Public Speaking</li>
+          <li>Leadership</li>
+          <li>Crisis Management</li>
+          <li>Negotiation</li>
+          <li>Policy Analysis</li>
+          <li>Economic Planning</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <div class="lang">
+          <div>
+            <div class="lang-name">Bangla <small>Native</small></div>
+            <div class="meter"><span>Read</span><span>Write</span><span>Speak</span></div>
+          </div>
+          <div>
+            <div class="lang-name">English <small>Proficient</small></div>
+            <div class="meter"><span>Read</span><span>Write</span><span class="mid">Speak</span></div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <main>
+      <section>
+        <h2>About</h2>
+        <p class="about">
+          Political leader and social organizer focused on reform. I work mainly in civic
+          education, youth engagement and national coordination, especially with the
+          National Citizen Party (NCP). I believe in building a democracy that puts people
+          first and stands for justice, equality and honest leadership — and I aim to
+          support a fair, inclusive and progressive society.
+        </p>
+      </section>
+
+      <section>
+        <h2>Political Background</h2>
+        <div class="timeline">
+          <div class="item current">
+            <div class="item-head">
+              <h3>National Citizen Party (NCP)</h3>
+              <span class="when">2025 – 2026</span>
+            </div>
+            <div class="pos"><strong>Joint Member Secretary</strong> <span>· Chattogram Metropolitan Area</span></div>
+            <div class="pos"><strong>Joint Chief Coordinator</strong> <span>· Jatiya Nari Shakti</span></div>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>July Women Network</h3>
+              <span class="when">2024</span>
+            </div>
+            <div class="pos"><strong>Founder</strong> <span>· Chattogram Metropolitan Area</span></div>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Anti-Discrimination Student Movement</h3>
+              <span class="when">2024</span>
+            </div>
+            <div class="pos"><strong>Organizer</strong> <span>· Chattogram Metropolitan Area</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="item-head">
+              <h3>Entrepreneur</h3>
+              <span class="when">Self-employed</span>
+            </div>
+            <div class="pos"><span>Mango and clothing business</span></div>
+          </div>
+          <div class="item">
+            <div class="item-head">
+              <h3>Epic Health Care Pvt. Ltd.</h3>
+              <span class="when">Apr 2016 – Nov 2020</span>
+            </div>
+            <div class="pos"><strong>Cash Entry Officer</strong> <span>· Panchlaish, Chattogram</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu">
+          <div class="edu-row"><span class="deg">LLB</span><div><div class="what">Professional Law (LLB)</div><div class="where">Chattogram Law College</div></div></div>
+          <div class="edu-row"><span class="deg">BBS</span><div><div class="what">Bachelor of Business Studies</div><div class="where">Govt. Hazi Mohammad Mohsin College, Chattogram</div></div></div>
+          <div class="edu-row"><span class="deg">HSC</span><div><div class="what">Business Studies</div><div class="where">Hathazari College, Chattogram</div></div></div>
+          <div class="edu-row"><span class="deg">SSC</span><div><div class="what">Humanities</div><div class="where">Kundeswari Girls High School</div></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="flag-bar"><span></span><span></span></div>
+  <div class="p2-head">
+    <div>
+      <h1>July 2024 &amp; Beyond</h1>
+      <p>Selected moments from the July movement, relief work and party activity in Chattogram.</p>
+    </div>
+    <div class="name">Sadia Afrin</div>
+  </div>
+  <div class="gallery">
+    <figure class="tall"><img src="assets/p1.jpg" alt=""><figcaption>July 2024 · Street protest</figcaption></figure>
+    <figure class="wide"><img src="assets/p4.jpg" alt=""><figcaption>Rally &amp; human chain</figcaption></figure>
+    <figure><img src="assets/p2.jpg" alt=""><figcaption>Speaking to the press</figcaption></figure>
+    <figure><img src="assets/p6.jpg" alt=""><figcaption>Addressing a gathering</figcaption></figure>
+    <figure class="wide"><img src="assets/p5.jpg" alt=""><figcaption>Protest rally, Chattogram</figcaption></figure>
+    <figure><img src="assets/p3.jpg" alt=""><figcaption>Commemoration</figcaption></figure>
+  </div>
+  <footer>
+    <span>Sadia Afrin · Political CV</span>
+    <span>+880 1884-282899 · sadiasinat@gmail.com</span>
+  </footer>
+</div>
+
+</body>
+</html>
